@@ -29,31 +29,8 @@ def lambda_handler(event, context):
         linemessage_reply(reply_token, msg)
         # print("message content is [%s]." % recv_msg)
 
-        if (recv_msg == "start"):
-            msg = "starting monitor..."
-            linemessage_reply(reply_token, msg)
-
-            response = events.enable_rule(
-                Name="5minutes_exe"
-            )
-
-        elif (recv_msg == "stop"):
-            msg = "stopping monitori..."
-            linemessage_reply(reply_token, msg)
-            response = events.disable_rule(
-                Name="5minutes_exe"
-            )
-
-        else:
-            msg = "Oops! the command is not supported.>_<\n" \
-                  "the supported command is\n" \
-                  "start\n" \
-                  "stop\n" \
-                  "log\n."
-            linemessage_reply(reply_token, msg)
-
     else:
-        print("[warn]:Data type is not message.")
+        print("にゃーん")
 
     return {
         "statusCode": 200,
