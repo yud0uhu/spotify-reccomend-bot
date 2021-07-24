@@ -29,10 +29,8 @@ def lambda_handler(event, context):
         linemessage_reply(reply_token, msg)
         # print("message content is [%s]." % recv_msg)
 
-    else:
-        reply_token = event_json["events"][0]["replyToken"]
-        msg = "にゃーん"
-        linemessage_reply(reply_token, msg)
+    else :
+        print("にゃーん")
 
     return {
         "statusCode": 200,
