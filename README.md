@@ -2,14 +2,14 @@
 
 ### 使用した API
 
-Spotify API Reference
+[Spotify API]
 https://developer.spotify.com/documentation/web-api/reference/
 
 - Personalization API
 - Playlists API
 - Search API
 
-LINE Messaging API
+[LINE Messaging API]
 https://developers.line.biz/ja/reference/messaging-api
 
 ### 動作確認
