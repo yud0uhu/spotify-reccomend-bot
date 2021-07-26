@@ -52,16 +52,19 @@ def getRecommendTracks(track_id):
       track_feature = getAudioFeature(track_id)
 
       for playlist_feature in playlist_features:
-        if track_feature['danceability'] > 0.7 and track_feature['tempo'] > 0.7 :
+        if track_feature['danceability'] > 0.56:
             if (track_feature['danceability']-1) <= playlist_feature['danceability'] <= (track_feature['danceability']+1) and \
-                (track_feature['tempo']-1) <= playlist_feature['tempo'] <= (track_feature['tempo']+1):
+                (track_feature['energy']-0.1) <= playlist_feature['energy'] <= (track_feature['energy']+0.1):
                 match = sp.track(playlist_feature['id'])
                 return "ノリノリなあなたには" + match['name'] + "もおすすめです！"
 
-        elif track_feature['mode'] == 0 and track_feature['valence'] < 0.5:
+        elif track_feature['mode'] == 0:
           if (track_feature['acousticness']-0.1) <= playlist_feature['acousticness'] <= (track_feature['acousticness']+0.1) and playlist_feature['mode'] == 0:
               match = sp.track(playlist_feature['id'])
               return "ムーディなあなたにはこちら！" + match['name']
+
+        else :
+          return "にゃーん"
 
     except IndexError:
         print("IndexError has occurred!")
@@ -70,4 +73,6 @@ def getRecommendTracks(track_id):
 
 if __name__ == '__main__':
     track_id = getTrackId("butter")
-    getRecommendTracks(track_id)
+    track_id = getTrackId("future nova")
+    print(getRecommendTracks(track_id))
+    
